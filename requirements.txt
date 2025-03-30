@@ -1,0 +1,15 @@
+streamlit
+osmnx
+networkx
+folium
+streamlit-folium
+geopy
+pandas
+joblib
+scikit-learn
+geopandas
+requests
+tensorflow
+keras
+plotly
+datetime
