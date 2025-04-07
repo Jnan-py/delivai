@@ -1,4 +1,3 @@
-# main.py
 import streamlit as st
 import osmnx as ox
 import networkx as nx
@@ -200,15 +199,14 @@ def main():
                 else:
                     st.error("Error in geocoding addresses or network not loaded.")
                 
-        if st.session_state.get("route_map") is not None and st.session_state.get("traffic_map") is not None:
+        if st.session_state.get("route_map") is not None:
             st.subheader("Maps Display")
             map_choice = st.radio("Select Map to Display", ("Optimal Route Map", "Traffic Heatmap"))
             if map_choice == "Optimal Route Map":
                 st.markdown("### Optimal Route Map")
                 st_folium(st.session_state.route_map, width=700, height=500, key="route_map_display")
             else:
-                st.markdown("### Traffic Heatmap")
-                st_folium(st.session_state.traffic_map, width=700, height=500, key="traffic_map_display")                
+                st.markdown("### Traffic Heatmap")                           
                 df_eda = load_eda_data()
                 heat_map = folium.Map(location=[40.7128, -74.0060], zoom_start=12)                
                 heat_data = [
